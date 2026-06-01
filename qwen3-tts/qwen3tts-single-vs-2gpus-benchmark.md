@@ -6,6 +6,34 @@
 
 ---
 
+## 0. 双卡高并发部署背景
+
+Qwen3-TTS 在 vLLM-Omni 中的推理流程分为两个阶段:
+
+- **Stage 0 (Talker)**: 文本语言模型, 负责将输入文本预测为离散音频 token 序列。
+- **Stage 1 (Code2Wav)**: 声码器 (Vocoder), 负责将音频 token 解码为最终波形。
+
+在单卡部署下, 两个阶段共享同一张 GPU, 高并发时互相争抢算力, 导致延迟飙升、成功率下降。
+
+vLLM-Omni 提供了 [qwen3_tts_high_concurrency.yaml](https://github.com/vllm-project/vllm-omni/blob/main/vllm_omni/deploy/qwen3_tts_high_concurrency.yaml) 高并发部署配置, 核心思路是**将两个阶段分离到不同 GPU 上**:
+
+```
+GPU 0 → Stage 0 (Talker)       max_num_seqs=64,  gpu_memory_utilization=0.3
+GPU 1 → Stage 1 (Code2Wav)     max_num_seqs=10,  gpu_memory_utilization=0.3
+         ↕ 共享内存 (SharedMemoryConnector)
+```
+
+**工作原理**:
+
+1. **阶段隔离**: Stage 0 独占 GPU 0 进行文本到 token 的批量推理, Stage 1 独占 GPU 1 进行 token 到波形的解码, 两者通过共享内存 (`SharedMemoryConnector`) 传递中间结果, 避免跨卡序列化开销。
+2. **异步调度** (`async_scheduling: true`): Stage 0 产出的 token 流式传递给 Stage 1, 无需等待整个序列生成完毕, 降低端到端首包延迟。
+3. **CUDA Graph 加速**: Stage 0 预捕获前缀 CUDA Graph (`prefix_graph_buckets: [64]`), Stage 1 按固定帧数桶捕获解码 Graph (`decode_cudagraph_capture_sizes: [25, 73, 97, 169, 325]`), 减少内核启动开销。
+4. **流式音频输出** (`codec_streaming: true`): 音频以小块 (chunk) 方式流式返回, 客户端可边生成边播放, 进一步降低体感延迟。
+
+本次压测中的双卡配置 (B/C/E) 即基于此高并发配置方案, 分别调整 `gpu_memory_utilization` 和模型大小进行对比。
+
+---
+
 ## 1. 测试配置概览
 
 | 编号 | 配置名称 | 模型 | GPU数量 | gpu_memory_utilization | 显存占用(GPU0/GPU1) |
