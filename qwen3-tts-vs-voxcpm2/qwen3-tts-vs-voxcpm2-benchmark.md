@@ -1,6 +1,7 @@
 # Qwen3-TTS vs VoxCPM2 压测性能对比报告
 
 > 测试时间: 2026-07-02
+> 相关参考: [VoxCPM2 早期压测对比](https://github.com/Dan250124/vllm-omni/blob/feat/qwen3tts_vs_voxcpm2_bench/examples/online_serving/qwen3_tts/tts_bench_comparison.md) (当时 VoxCPM2 并发性能较差)
 > 测试平台: 1× NVIDIA L20 (48GB) | AMD EPYC 9K84 | CUDA 12.4
 > 软件版本: vLLM-Omni 0.23.0rc1 | vLLM 0.23.1.dev0 | PyTorch 2.11.0+cu128
 > 部署方式: vLLM-Omni `--omni` 单卡部署, 每组 200 请求, 并发度 1→20
