@@ -1,0 +1,659 @@
+vllm serve OpenBMB/VoxCPM2 --deploy-config vllm_omni/deploy/voxcpm2.yaml --omni --host 0.0.0.0 --port 8000
+
+python bench.py --concurrency 1 --total 200
+=======================================================
+  VoxCPM2 TTS Benchmark Results
+=======================================================
+  Total requests:    200
+  Successful:        194
+  Failed:            6
+  Success rate:      97.0%
+
+  RTF (Real-Time Factor, lower=better):
+    Min:              0.123
+    Mean:             0.145
+    Median (P50):     0.134
+    P90:              0.161
+    P95:              0.182
+    P99:              0.590
+    Max:              0.640
+
+  Latency (seconds):
+    Min:              0.210
+    Mean:             0.550
+    Median (P50):     0.499
+    P90:              0.808
+    P95:              0.944
+    P99:              2.663
+    Max:              2.695
+
+  Audio duration (seconds):
+    Min:              1.440
+    Mean:             3.877
+    Max:              21.600
+    Total:            752.16
+
+  Total audio bytes:  72,215,896
+=======================================================
+
+  Wall time:             125.02s
+  Throughput:            1.60 req/s
+  Success throughput:    1.55 req/s
+
+
+
+python bench.py --concurrency 2 --total 200
+=======================================================
+  VoxCPM2 TTS Benchmark Results
+=======================================================
+  Total requests:    200
+  Successful:        194
+  Failed:            6
+  Success rate:      97.0%
+
+  RTF (Real-Time Factor, lower=better):
+    Min:              0.139
+    Mean:             0.162
+    Median (P50):     0.157
+    P90:              0.180
+    P95:              0.195
+    P99:              0.230
+    Max:              0.241
+
+  Latency (seconds):
+    Min:              0.268
+    Mean:             0.619
+    Median (P50):     0.573
+    P90:              0.816
+    P95:              1.028
+    P99:              1.893
+    Max:              2.111
+
+  Audio duration (seconds):
+    Min:              1.440
+    Mean:             3.867
+    Max:              13.600
+    Total:            750.24
+
+  Total audio bytes:  72,031,576
+=======================================================
+
+  Wall time:             69.96s
+  Throughput:            2.86 req/s
+  Success throughput:    2.77 req/s
+
+
+python bench.py --concurrency 3 --total 200
+=======================================================
+  Total requests:    200
+  Successful:        199
+  Failed:            1
+  Success rate:      99.5%
+
+  RTF (Real-Time Factor, lower=better):
+    Min:              0.153
+    Mean:             0.195
+    Median (P50):     0.188
+    P90:              0.226
+    P95:              0.248
+    P99:              0.278
+    Max:              0.281
+
+  Latency (seconds):
+    Min:              0.230
+    Mean:             0.728
+    Median (P50):     0.694
+    P90:              1.044
+    P95:              1.249
+    P99:              1.748
+    Max:              1.755
+
+  Audio duration (seconds):
+    Min:              1.120
+    Mean:             3.812
+    Max:              10.720
+    Total:            758.56
+
+  Total audio bytes:  72,830,516
+=======================================================
+
+  Wall time:             49.93s
+  Throughput:            4.01 req/s
+  Success throughput:    3.99 req/s
+
+
+python bench.py --concurrency 4 --total 200
+=======================================================
+  VoxCPM2 TTS Benchmark Results
+=======================================================
+  Total requests:    200
+  Successful:        192
+  Failed:            8
+  Success rate:      96.0%
+
+  RTF (Real-Time Factor, lower=better):
+    Min:              0.154
+    Mean:             0.206
+    Median (P50):     0.202
+    P90:              0.232
+    P95:              0.245
+    P99:              0.271
+    Max:              0.283
+
+  Latency (seconds):
+    Min:              0.264
+    Mean:             0.792
+    Median (P50):     0.771
+    P90:              1.058
+    P95:              1.263
+    P99:              1.814
+    Max:              2.874
+
+  Audio duration (seconds):
+    Min:              1.120
+    Mean:             3.929
+    Max:              15.200
+    Total:            754.40
+
+  Total audio bytes:  72,430,848
+=======================================================
+
+  Wall time:             44.52s
+  Throughput:            4.49 req/s
+  Success throughput:    4.31 req/s
+
+
+python bench.py --concurrency 5 --total 200
+=======================================================
+  VoxCPM2 TTS Benchmark Results
+=======================================================
+  Total requests:    200
+  Successful:        192
+  Failed:            8
+  Success rate:      96.0%
+
+  RTF (Real-Time Factor, lower=better):
+    Min:              0.170
+    Mean:             0.233
+    Median (P50):     0.231
+    P90:              0.260
+    P95:              0.271
+    P99:              0.309
+    Max:              0.357
+
+  Latency (seconds):
+    Min:              0.325
+    Mean:             0.896
+    Median (P50):     0.842
+    P90:              1.238
+    P95:              1.484
+    P99:              2.188
+    Max:              2.290
+
+  Audio duration (seconds):
+    Min:              1.120
+    Mean:             3.913
+    Max:              11.840
+    Total:            751.36
+
+  Total audio bytes:  72,139,008
+=======================================================
+
+  Wall time:             39.72s
+  Throughput:            5.04 req/s
+  Success throughput:    4.83 req/s
+
+
+python bench.py --concurrency 6 --total 200
+=======================================================
+  VoxCPM2 TTS Benchmark Results
+=======================================================
+  Total requests:    200
+  Successful:        194
+  Failed:            6
+  Success rate:      97.0%
+
+  RTF (Real-Time Factor, lower=better):
+    Min:              0.170
+    Mean:             0.281
+    Median (P50):     0.273
+    P90:              0.323
+    P95:              0.381
+    P99:              0.448
+    Max:              0.518
+
+  Latency (seconds):
+    Min:              0.313
+    Mean:             1.036
+    Median (P50):     1.007
+    P90:              1.441
+    P95:              1.678
+    P99:              2.012
+    Max:              2.248
+
+  Audio duration (seconds):
+    Min:              1.120
+    Mean:             3.781
+    Max:              9.280
+    Total:            733.44
+
+  Total audio bytes:  70,418,776
+=======================================================
+
+  Wall time:             37.11s
+  Throughput:            5.39 req/s
+  Success throughput:    5.23 req/s
+
+
+python bench.py --concurrency 10 --total 200
+=======================================================
+  VoxCPM2 TTS Benchmark Results
+=======================================================
+  Total requests:    200
+  Successful:        188
+  Failed:            12
+  Success rate:      94.0%
+
+  RTF (Real-Time Factor, lower=better):
+    Min:              0.284
+    Mean:             0.421
+    Median (P50):     0.417
+    P90:              0.483
+    P95:              0.507
+    P99:              0.551
+    Max:              0.605
+
+  Latency (seconds):
+    Min:              0.510
+    Mean:             1.530
+    Median (P50):     1.495
+    P90:              2.141
+    P95:              2.506
+    P99:              2.779
+    Max:              2.900
+
+  Audio duration (seconds):
+    Min:              1.280
+    Mean:             3.685
+    Max:              7.520
+    Total:            692.80
+
+  Total audio bytes:  66,517,072
+=======================================================
+
+  Wall time:             34.42s
+  Throughput:            5.81 req/s
+  Success throughput:    5.46 req/s
+
+
+python bench.py --concurrency 20 --total 200
+=======================================================
+  VoxCPM2 TTS Benchmark Results
+=======================================================
+  Total requests:    200
+  Successful:        50
+  Failed:            150
+  Success rate:      25.0%
+
+  RTF (Real-Time Factor, lower=better):
+    Min:              0.453
+    Mean:             0.970
+    Median (P50):     0.923
+    P90:              1.399
+    P95:              1.597
+    P99:              1.788
+    Max:              1.788
+
+  Latency (seconds):
+    Min:              0.950
+    Mean:             2.269
+    Median (P50):     2.366
+    P90:              2.893
+    P95:              2.922
+    P99:              2.944
+    Max:              2.944
+
+  Audio duration (seconds):
+    Min:              1.120
+    Mean:             2.534
+    Max:              4.800
+    Total:            126.72
+
+  Total audio bytes:  12,167,320
+=======================================================
+
+  Wall time:             29.10s
+  Throughput:            6.87 req/s
+  Success throughput:    1.72 req/s
+
+
+
+vllm serve Qwen/Qwen3-TTS-12Hz-0.6B-Base --deploy-config vllm_omni/deploy/qwen3_tts.0.6b.yaml --omni --host 0
+.0.0.0 --port 8000
+
+=======================================================
+ Qwen3-TTS-12Hz-0.6B-Base TTS Benchmark Results
+=======================================================
+  Concurrency:    1
+  Total requests:    200
+  Successful:        200
+  Failed:            0
+  Success rate:      100.0%
+
+  RTF (Real-Time Factor, lower=better):
+    Min:              0.153
+    Mean:             0.168
+    Median (P50):     0.163
+    P90:              0.184
+    P95:              0.207
+    P99:              0.232
+    Max:              0.280
+
+  Latency (seconds):
+    Min:              0.231
+    Mean:             0.618
+    Median (P50):     0.579
+    P90:              0.932
+    P95:              1.091
+    P99:              1.345
+    Max:              1.368
+
+  Audio duration (seconds):
+    Min:              1.360
+    Mean:             3.712
+    Max:              8.320
+    Total:            742.32
+
+  Total audio bytes:  35,640,160
+=======================================================
+
+  Wall time:             123.87s
+  Throughput:            1.61 req/s
+  Success throughput:    1.61 req/s
+
+
+
+=======================================================
+ Qwen3-TTS-12Hz-0.6B-Base TTS Benchmark Results
+=======================================================
+  Concurrency:    2
+  Total requests:    200
+  Successful:        199
+  Failed:            1
+  Success rate:      99.5%
+
+  RTF (Real-Time Factor, lower=better):
+    Min:              0.176
+    Mean:             0.198
+    Median (P50):     0.191
+    P90:              0.226
+    P95:              0.249
+    P99:              0.255
+    Max:              0.262
+
+  Latency (seconds):
+    Min:              0.264
+    Mean:             0.725
+    Median (P50):     0.696
+    P90:              1.001
+    P95:              1.069
+    P99:              1.439
+    Max:              1.545
+
+  Audio duration (seconds):
+    Min:              1.200
+    Mean:             3.687
+    Max:              8.240
+    Total:            733.68
+
+  Total audio bytes:  35,225,396
+=======================================================
+
+  Wall time:             74.06s
+  Throughput:            2.70 req/s
+  Success throughput:    2.69 req/s
+
+
+=======================================================
+ Qwen3-TTS-12Hz-0.6B-Base TTS Benchmark Results
+=======================================================
+  Concurrency:    3
+  Total requests:    200
+  Successful:        199
+  Failed:            1
+  Success rate:      99.5%
+
+  RTF (Real-Time Factor, lower=better):
+    Min:              0.174
+    Mean:             0.223
+    Median (P50):     0.219
+    P90:              0.250
+    P95:              0.259
+    P99:              0.301
+    Max:              0.310
+
+  Latency (seconds):
+    Min:              0.340
+    Mean:             0.833
+    Median (P50):     0.789
+    P90:              1.232
+    P95:              1.366
+    P99:              1.825
+    Max:              1.846
+
+  Audio duration (seconds):
+    Min:              1.280
+    Mean:             3.764
+    Max:              8.400
+    Total:            749.04
+
+  Total audio bytes:  35,962,676
+=======================================================
+
+  Wall time:             56.88s
+  Throughput:            3.52 req/s
+  Success throughput:    3.50 req/s
+
+
+=======================================================
+ Qwen3-TTS-12Hz-0.6B-Base TTS Benchmark Results
+=======================================================
+  Concurrency:    4
+  Total requests:    200
+  Successful:        200
+  Failed:            0
+  Success rate:      100.0%
+
+  RTF (Real-Time Factor, lower=better):
+    Min:              0.207
+    Mean:             0.245
+    Median (P50):     0.236
+    P90:              0.286
+    P95:              0.309
+    P99:              0.344
+    Max:              0.348
+
+  Latency (seconds):
+    Min:              0.334
+    Mean:             0.868
+    Median (P50):     0.835
+    P90:              1.247
+    P95:              1.505
+    P99:              1.841
+    Max:              1.905
+
+  Audio duration (seconds):
+    Min:              1.280
+    Mean:             3.598
+    Max:              7.920
+    Total:            719.52
+
+  Total audio bytes:  34,545,760
+=======================================================
+
+  Wall time:             44.00s
+  Throughput:            4.55 req/s
+  Success throughput:    4.55 req/s
+
+
+=======================================================
+ Qwen3-TTS-12Hz-0.6B-Base TTS Benchmark Results
+=======================================================
+  Concurrency:    5
+  Total requests:    200
+  Successful:        200
+  Failed:            0
+  Success rate:      100.0%
+
+  RTF (Real-Time Factor, lower=better):
+    Min:              0.216
+    Mean:             0.264
+    Median (P50):     0.256
+    P90:              0.308
+    P95:              0.318
+    P99:              0.356
+    Max:              0.396
+
+  Latency (seconds):
+    Min:              0.376
+    Mean:             0.966
+    Median (P50):     0.920
+    P90:              1.373
+    P95:              1.601
+    P99:              1.929
+    Max:              2.009
+
+  Audio duration (seconds):
+    Min:              1.280
+    Mean:             3.700
+    Max:              8.320
+    Total:            740.00
+
+  Total audio bytes:  35,528,800
+=======================================================
+
+  Wall time:             39.12s
+  Throughput:            5.11 req/s
+  Success throughput:    5.11 req/s
+
+=======================================================
+ Qwen3-TTS-12Hz-0.6B-Base TTS Benchmark Results
+=======================================================
+  Concurrency:    6
+  Total requests:    200
+  Successful:        200
+  Failed:            0
+  Success rate:      100.0%
+
+  RTF (Real-Time Factor, lower=better):
+    Min:              0.197
+    Mean:             0.287
+    Median (P50):     0.281
+    P90:              0.327
+    P95:              0.338
+    P99:              0.362
+    Max:              0.383
+
+  Latency (seconds):
+    Min:              0.389
+    Mean:             1.062
+    Median (P50):     1.013
+    P90:              1.596
+    P95:              1.785
+    P99:              2.157
+    Max:              2.307
+
+  Audio duration (seconds):
+    Min:              1.200
+    Mean:             3.727
+    Max:              7.600
+    Total:            745.36
+
+  Total audio bytes:  35,786,080
+=======================================================
+
+  Wall time:             36.41s
+  Throughput:            5.49 req/s
+  Success throughput:    5.49 req/s
+
+
+=======================================================
+ Qwen3-TTS-12Hz-0.6B-Base TTS Benchmark Results
+=======================================================
+  Concurrency:    10
+  Total requests:    200
+  Successful:        196
+  Failed:            4
+  Success rate:      98.0%
+
+  RTF (Real-Time Factor, lower=better):
+    Min:              0.268
+    Mean:             0.374
+    Median (P50):     0.362
+    P90:              0.408
+    P95:              0.596
+    P99:              0.900
+    Max:              1.100
+
+  Latency (seconds):
+    Min:              0.408
+    Mean:             1.389
+    Median (P50):     1.312
+    P90:              2.066
+    P95:              2.317
+    P99:              2.729
+    Max:              2.816
+
+  Audio duration (seconds):
+    Min:              1.120
+    Mean:             3.802
+    Max:              7.840
+    Total:            745.20
+
+  Total audio bytes:  35,778,224
+=======================================================
+
+  Wall time:             29.03s
+  Throughput:            6.89 req/s
+  Success throughput:    6.75 req/s
+
+
+=======================================================
+ Qwen3-TTS-12Hz-0.6B-Base TTS Benchmark Results
+=======================================================
+  Concurrency:    20
+  Total requests:    200
+  Successful:        188
+  Failed:            12
+  Success rate:      94.0%
+
+  RTF (Real-Time Factor, lower=better):
+    Min:              0.287
+    Mean:             0.678
+    Median (P50):     0.664
+    P90:              0.868
+    P95:              0.986
+    P99:              1.193
+    Max:              1.276
+
+  Latency (seconds):
+    Min:              0.440
+    Mean:             2.281
+    Median (P50):     2.322
+    P90:              2.758
+    P95:              2.926
+    P99:              2.980
+    Max:              2.989
+
+  Audio duration (seconds):
+    Min:              1.360
+    Mean:             3.506
+    Max:              8.000
+    Total:            659.20
+
+  Total audio bytes:  31,649,872
+=======================================================
+
+  Wall time:             24.43s
+  Throughput:            8.19 req/s
+  Success throughput:    7.69 req/s

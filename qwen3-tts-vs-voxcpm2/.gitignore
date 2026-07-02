@@ -1,0 +1,10 @@
+# 隔离虚拟环境 (uv) — 本地生成, 不入库
+.venv/
+
+# 字体二进制 (OFL, 体积较大, 运行时从 Windows/系统路径自动加载)
+assets/*.otf
+assets/*.ttf
+
+# Python 缓存
+__pycache__/
+*.pyc
